@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import PortfolioItem from "./portfolio-item";
 
@@ -8,12 +9,8 @@ export default class PortfolioContainer extends Component {
 
     this.state = {
       pageTitle: "Welcome to my portfolio",
-      data: [
-        {title: "Military Spouses Market", category: "eCommerce"}, 
-        {title: "Manage My Stuff", category: "Scheduling"},
-        {title: "Fontanez Inc.", category: "Enterprise"}, 
-        {title: "The Virtual Fitness Master", category: "Fitness"}
-      ]
+      isLoading: false,
+      data: []
     };
 
     this.handleFilter = this.handleFilter.bind(this);
@@ -27,13 +24,34 @@ export default class PortfolioContainer extends Component {
     });
   }
 
+  getPortfolioItems() {
+    axios
+      .get("https://williamfontanez.devcamp.space/portfolio/portfolio_items")
+      .then(response => {
+        this.setState({
+          data: response.data.portfolio_items
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   portfolioItems() {
     return this.state.data.map(item => {
-      return <PortfolioItem title={item.title} url={"google.com"} />;
+      return <PortfolioItem key={item.id} item={item} />;
     });
   }
 
+  componentDidMount() {
+    this.getPortfolioItems();
+  }
+
   render() {
+    if (this.state.isLoading) {
+      return <div>Loading...</div>;
+    }
+
     return (
       <div>
         <h2>{this.state.pageTitle}</h2>
@@ -48,10 +66,7 @@ export default class PortfolioContainer extends Component {
           Enterprise
         </button>
         <button onClick={() => this.handleFilter("Fitness")}>
-          Fitness
-        </button>
-        <button onClick={() => this.handleFilter("eCommerce", "Scheduling", "Enterprise", "Fitness")}>
-          View
+          Enterprise
         </button>
 
         {this.portfolioItems()}
@@ -59,6 +74,3 @@ export default class PortfolioContainer extends Component {
     );
   }
 }
-
-
-
