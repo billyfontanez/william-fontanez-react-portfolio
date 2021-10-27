@@ -35,7 +35,7 @@ export default class NavigationComponent extends Component {
           </div>
         </div>
 
-        <div className="right-side">Willaim Fontanez</div>
+        <div className="right-side">William Fontanez</div>
       </div>
     );
   }
