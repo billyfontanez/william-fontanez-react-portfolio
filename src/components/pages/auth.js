@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Login from "../auth/login";
-import loginImg from "../pages/login.png";
+import loginImg from "../../../static/assets/images/auth/login.png";
 
 
 
@@ -26,7 +26,7 @@ export default class Auth extends Component {
       <div className="auth-page-wrapper">
         <div className="left-column">
 
-            <img src={loginImg} alt="logo" />
+            <img src={loginImg} alt="logo"/>
 
         <div/>
       </div>
