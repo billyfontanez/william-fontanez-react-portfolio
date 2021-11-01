@@ -12,28 +12,30 @@ export default class PortfolioManager extends Component {
       portfolioItems: []
     };
 
-  this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(
-    this
-  );
-  this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
-}
+    this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(
+      this
+    );
+    this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
+  }
 
-handleSuccessfulFormSubmission(portfolioItem) {
-  // TODO
-  // update the portfolioItems state
-  // and add the portfolioItem to the list
-}
+  handleSuccessfulFormSubmission(portfolioItem) {
+    this.setState({
+      portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
+    });
+  }
 
-handleFormSubmissionError(error) {
-  console.log("handleFormSubmissionError error", error);
-}
-
+  handleFormSubmissionError(error) {
+    console.log("handleFormSubmissionError error", error);
+  }
 
   getPortfolioItems() {
     axios
-      .get("https://williamfontanez.devcamp.space/portfolio/portfolio_items", {
-        withCredentials: true
-      })
+      .get(
+        "https://williamfontanez.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc",
+        {
+          withCredentials: true
+        }
+      )
       .then(response => {
         this.setState({
           portfolioItems: [...response.data.portfolio_items]
