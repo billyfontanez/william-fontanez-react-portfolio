@@ -9,7 +9,7 @@ export default class PortfolioContainer extends Component {
 
     this.state = {
       pageTitle: "Welcome to my portfolio",
-      isLoading: false,
+      isLoading: false, 
       data: []
     };
 
@@ -57,14 +57,11 @@ export default class PortfolioContainer extends Component {
         <button className="btn" onClick={() => this.handleFilter("eCommerce")}>
           eCommerce
         </button>
-        <button className="btn" onClick={() => this.handleFilter("Production/Organize")}>
+        <button className="btn" onClick={() => this.handleFilter("Scheduling")}>
           Scheduling
         </button>
         <button className="btn" onClick={() => this.handleFilter("Enterprise")}>
           Enterprise
-        </button>
-        <button className="btn" onClick={() => this.handleFilter("Fitness")}>
-          Fitness
         </button>
 
         {this.portfolioItems()}
