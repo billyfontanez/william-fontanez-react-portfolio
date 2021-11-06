@@ -107,7 +107,7 @@ export default class PortfolioForm extends Component {
 
   componentConfig() {
     return {
-      iconFiletypes: [".jpg", ".png"],
+      iconFiletypes: [".jpg", ".png", ".gif", ".mp4", ".jpeg"],
       showFiletypeIcon: true,
       postUrl: "https://httpbin.org/post"
     };
