@@ -5,7 +5,7 @@ console.log(profilePicture);
 
 export default function() {
   return (
-    <div className="content-page-wrapper">
+    <div className="about-page-wrapper">
       <div className="left-column">
         <img src="../../../static/assets/images/bio/headshot.png" alt="William Fontanez Headshot" />
       </div>

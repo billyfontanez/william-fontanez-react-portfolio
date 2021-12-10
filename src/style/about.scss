@@ -1,8 +1,21 @@
+.about-page-wrapper{
+    display: grid;
+    grid-template-columns: .60fr 1fr;
+}
+
 .left-column img{
     height: 100vh;
 }
 
 .right-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: xx-large;
+}
+
+.right-column {
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 

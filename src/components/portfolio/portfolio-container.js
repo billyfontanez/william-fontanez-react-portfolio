@@ -71,9 +71,9 @@ export default class PortfolioContainer extends Component {
           </button>
           <button
             className="btn"
-            onClick={() => this.handleFilter("Scheduling")}
+            onClick={() => this.handleFilter("Current Projects")}
           >
-            Scheduling
+            Current Projects
           </button>
           <button
             className="btn"
@@ -81,6 +81,13 @@ export default class PortfolioContainer extends Component {
           >
             Enterprise
           </button>
+          <button
+            className="btn"
+            onClick={() => this.handleFilter("Widgets")}
+          >
+            Widgets
+          </button>
+
           <button
             className="btn"
             onClick={() => this.handleFilter("CLEAR_FILTERS")}
